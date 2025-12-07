@@ -4,3 +4,4 @@
 2. Comparator's
 3. Obsługa null w kolekcjach
 4. Notacja Big O
+5. Programowanie funkcyjne
