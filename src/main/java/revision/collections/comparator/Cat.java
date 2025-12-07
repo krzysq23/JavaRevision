@@ -1,4 +1,4 @@
-package revision.collections;
+package revision.collections.comparator;
 
 public class Cat {
 

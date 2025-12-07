@@ -1,7 +1,5 @@
 package revision.collections.comparator;
 
-import revision.collections.Cat;
-
 import java.util.*;
 
 public class ComparatorMain {
