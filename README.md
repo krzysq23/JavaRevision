@@ -7,3 +7,4 @@
 5. Programowanie funkcyjne
 6. Java Streams
 7. Localization
+8. Try on resources/IoException/SupressedException
