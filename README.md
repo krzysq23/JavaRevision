@@ -6,3 +6,4 @@
 4. Notacja Big O
 5. Programowanie funkcyjne
 6. Java Streams
+7. Localization
