@@ -1,0 +1,4 @@
+11Car{name='Stefan'}
+Java example
+some value: [Car{name='Stefan'}] 
+some value: [Car{name='Stefan'}] 

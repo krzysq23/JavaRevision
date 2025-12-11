@@ -40,39 +40,39 @@ public class SerializationExample {
         System.out.println(deserialize(destinationCar));
 
 
-//        List<Dog> dogs = new ArrayList<>();
-//        dogs.add(new Dog("Burek", "Burecki"));
-//        dogs.add(new Dog("Fafik", "Fafikowy"));
-//        dogs.add(new Dog("Aport", "Aporcinski"));
-//
-//        System.out.println("\n\nSeriazlized\n");
-//        serialize(dogs, destinationDog);
-//        System.out.println("Deserialize\n");
-//        List<Dog> deserializeDogs =
-//                deserialize(destinationDog)
-//                        .stream()
-//                        .map(o -> (Dog) o)
-//                        .toList();
-//        System.out.println(deserializeDogs);
-//        System.out.println((deserializeDogs.get(0)));
-//        System.out.println(Dog.getAge());
-//
-//
-//        List<Persian> persian = new ArrayList<>();
-//        persian.add(new Persian("Kotek", "Płotek"));
-//        persian.add(new Persian("Lolek", "Kacapolek"));
-//        persian.add(new Persian("Filek", "Filemon"));
-//
-//        System.out.println("\n\nSeriazlized\n");
-//        serialize(persian, destinationDog);
-//        System.out.println("Deserialize\n");
-//        List<Persian> deserializePersian =
-//                deserialize(destinationDog)
-//                        .stream()
-//                        .map(o -> (Persian) o)
-//                        .toList();
-//        System.out.println(deserializePersian);
-//        System.out.println((deserializePersian.get(0)));
+        List<Dog> dogs = new ArrayList<>();
+        dogs.add(new Dog("Burek", "Burecki"));
+        dogs.add(new Dog("Fafik", "Fafikowy"));
+        dogs.add(new Dog("Aport", "Aporcinski"));
+
+        System.out.println("\n\nSeriazlized\n");
+        serialize(dogs, destinationDog);
+        System.out.println("Deserialize\n");
+        List<Dog> deserializeDogs =
+                deserialize(destinationDog)
+                        .stream()
+                        .map(o -> (Dog) o)
+                        .toList();
+        System.out.println(deserializeDogs);
+        System.out.println((deserializeDogs.get(0)));
+        System.out.println(Dog.getAge());
+
+
+        List<Persian> persian = new ArrayList<>();
+        persian.add(new Persian("Kotek", "Płotek"));
+        persian.add(new Persian("Lolek", "Kacapolek"));
+        persian.add(new Persian("Filek", "Filemon"));
+
+        System.out.println("\n\nSeriazlized\n");
+        serialize(persian, destinationDog);
+        System.out.println("Deserialize\n");
+        List<Persian> deserializePersian =
+                deserialize(destinationDog)
+                        .stream()
+                        .map(o -> (Persian) o)
+                        .toList();
+        System.out.println(deserializePersian);
+        System.out.println((deserializePersian.get(0)));
     }
 
     private static List<Object> deserialize(File destination) throws IOException, ClassNotFoundException {
