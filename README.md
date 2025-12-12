@@ -10,3 +10,4 @@
 8. Try on resources/IoException/SupressedException
 9. IO Streams
 10. Serialization
+11. Operacje na bazach danych i JDBC
