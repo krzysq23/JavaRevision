@@ -30,7 +30,7 @@ sourceSets {
 	main {
 		java {
 			srcDirs = ['src/main/java']
-			exclude 'revision/**'
+//			exclude 'revision/**'
 		}
 	}
 }
@@ -54,6 +54,7 @@ dependencies {
 	// lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
 
 	// Hibernate
 	implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
