@@ -1,0 +1,157 @@
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--    określa używaną przez nas wersję modelu POM  -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--    unikalny identyfikator organizacji, dla której projekt jest tworzony  -->
+    <groupId>pl.zajavka</groupId>
+
+    <!--    identyfikator nazwy projektu, który tworzymy    -->
+    <artifactId>java-maven-examples</artifactId>
+
+    <!--    numer wersji naszego projektu   -->
+    <version>1.0.0</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!--        <maven.compiler.source>17</maven.compiler.source    >-->
+<!--        <maven.compiler.target>17</maven.compiler.target>   -->
+<!--        konfiguracja java jest w maven-compiler-plugin  -->
+    </properties>
+
+    <!--
+
+        ==== Komendy Maven ====
+
+        lifecycle -> phase -> goal
+
+        uruchomienie phase uruchamia wszystkie poprzednie phase (z hierarchi poniżej)
+
+        mvn build -> pobiera zależności
+
+        mvn clean -> pozbywa się targetowych rzeczy (lifecycle)
+        mvn validate -> waliduje projekt (phase in default lifecycle)
+        mvn compile -> kompiluje kod do target (phase in default lifecycle)
+        mvn test -> uruchamia testy (phase in default lifecycle)
+        mvn package -> generuje paczke z jar'ami (phase in default lifecycle)
+        mvn verify -> sprawdza założenia jakościowe, np.czy kod jest pokryty przynajmniej w 50% testami (phase in default lifecycle)
+        mvn install -> instaluje paczkę i wsadza do repozytorium (phase in default lifecycle)
+        mvn deploy -> służy do wrzucenia paczki do repozytorium (phase in default lifecycle)
+
+        mvn help:effective-pom -> generuje ostateczny pom
+
+    -->
+
+    <!--    Parent POM - dziedziczenie z innej konfiguracji    -->
+    <!--    mvn help:effective-pom -> generuje ostateczny pom  -->
+    <parent>
+        <groupId>pl.test.parent</groupId>
+        <artifactId>java-maven-examples-parent</artifactId>
+        <version>0.0.1</version>
+        <relativePath>../parent/pom.xml</relativePath>
+    </parent>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.14.2</version>
+            <!--
+            Scope określa nam w jaki sposób mamy
+            podchodzić do umieszczania pobranej dependencji na classpath:
+             - compile (Defaultowy scope, czyli jak nie wybierzemy żadnego to będzie wybrany ten.
+                        Dependencje oznaczone jako compile będą dostępne na wszystkich
+                        classpathach i na etapie kompilacji i na etapie wykonania programu)
+             - runtime (odobny do scope compile, ale określa, że oczekujemy, że zależność jest
+                        konieczna na etapie kompilacji. Natomiast w trakcie działania programu
+                        oczekujemy, że dependencja zostanie dostarczona przez serwer, na którym
+                        uruchamiamy nasz program. Ustawimy też ten zakres jeżeli potrzebujemy
+                        dependencji na etapie budowania, ale w trakcie działania już nie.)
+             - provided (Dependencja nie jest potrzebna na etapie kompilacji, ale jest wymagana w
+                        trakcie działania programu.)
+             - test     (Dependencja nie jest wymagana podczas normalnego działania programu,
+                        potrzebujemy jej natomiast jeżeli będziemy pisać testy do naszego programu.
+                        Najczęściej używane do bibliotek, które są stosowane tylko do testów.)
+            -->
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.1-jre</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.14.1</version>
+                <configuration>
+                    <!--    release ustawia wersje JAVA (source i target) -->
+                    <release>17</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.10.0</version>
+                <configuration>
+                    <printFailingErrors>true</printFailingErrors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--    Plugin  tworzący fat jar'a z dependencies-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>java.revision.Application</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <!-- executions mówi kiedy ma sie uruchomić plugin  -->
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--    profile    -->
+    <profiles>
+        <profile>
+            <id>TEST</id>
+            <build></build>
+            <modules></modules>
+            <repositories></repositories>
+            <dependencies></dependencies>
+        </profile>
+    </profiles>
+
+</project>

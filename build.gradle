@@ -37,6 +37,12 @@ dependencies {
 	// Database MySQL Connector
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
+	// jsoup
+	implementation 'org.jsoup:jsoup:1.21.2'
+
+	// guava
+	implementation 'com.google.guava:guava:33.5.0-jre'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
