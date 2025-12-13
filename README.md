@@ -11,4 +11,6 @@
 9. IO Streams
 10. Serialization
 11. Operacje na bazach danych i JDBC
-12. Maven
+12. Maven/Gradle
+13. Lombok
+14. Logowanie slf4j
