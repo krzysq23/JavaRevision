@@ -14,3 +14,4 @@
 12. Maven/Gradle
 13. Lombok
 14. Logowanie slf4j
+15. Design Principles DRY, KISS, YAGNI, Composition over Inheritance, SOLID
