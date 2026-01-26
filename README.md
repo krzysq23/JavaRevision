@@ -18,3 +18,4 @@
 16. Design Patterns (wzorce projektowe)
 17. Spring Beans
 18. Testy jednostkowe
+19. Mocking / BDD
