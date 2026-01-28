@@ -19,3 +19,4 @@
 17. Spring Beans
 18. Testy jednostkowe
 19. Mocking / BDD
+20. Spring Data Access
