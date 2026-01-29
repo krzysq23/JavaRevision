@@ -20,3 +20,4 @@
 18. Testy jednostkowe
 19. Mocking / BDD
 20. Spring Data Access
+21. ORM i Hibernate
