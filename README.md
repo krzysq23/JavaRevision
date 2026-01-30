@@ -21,3 +21,4 @@
 19. Mocking / BDD
 20. Spring Data Access
 21. ORM i Hibernate
+22. Spring Data JPA
